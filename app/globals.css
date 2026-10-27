@@ -1,26 +1,332 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Layer 1: primitives. Raw values. Components never use these directly,
+   with one exception: surface overrides inside Section (see primitives.tsx).
+------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-300: #93b4ff;
+  --blue-600: #2563eb;
+  --blue-800: #1e40af; /* brand primary */
+  --blue-900: #1e3a8a;
+  --tint: #e8eeff;
+
+  --gray-0: #ffffff;
+  --gray-50: #f5f5f7;
+  --gray-100: #e8e8ed;
+  --gray-200: #d2d2d7;
+  --gray-400: #a1a1a6;
+  --gray-500: #86868b;
+  --gray-600: #6e6e73;
+  --gray-900: #1d1d1f;
+  --slate-700: #3f4250;
+  --slate-600: #44494f;
+  --charcoal-900: #1c2127;
+  --fade-300: #bcc3d2;
+  --tile-glass: rgb(113 141 197 / 0.2);
+  --paper-100: #f5f5f5;
+  --chip-100: #e2e5f3;
+  --placeholder-200: #d9d9d9;
+
+  --navy-950: #020c2e;
+  --navy-900: #161d36;
+
+  --periwinkle-200: #c7d4ff;
+  --steel-300: #6f8bd0;
+  --steel-500: #50639f;
+  --hero-overlay: #030f37;
+
+  --red-700: #b42318;
+  --green-700: #067647;
+  --amber-800: #92400e;
+
+  /* Motion primitives */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 500ms;
+  --duration-hero: 800ms;
 }
 
+/* ------------------------------------------------------------------
+   Layer 2: semantic tokens, light surface (the default).
+   Names follow shadcn so every shadcn component inherits the system.
+------------------------------------------------------------------- */
+:root {
+  --background: var(--gray-0);
+  --foreground: var(--gray-900);
+  --card: var(--gray-50);
+  --card-foreground: var(--gray-900);
+  --popover: var(--gray-0);
+  --popover-foreground: var(--gray-900);
+  --muted: var(--gray-50);
+  --muted-foreground: var(--gray-600);
+  --primary: var(--blue-800);
+  --primary-hover: var(--blue-900);
+  --primary-foreground: var(--gray-0);
+  --secondary: var(--gray-50);
+  --secondary-hover: var(--gray-100);
+  --secondary-foreground: var(--gray-900);
+  --accent: var(--blue-50);
+  --accent-foreground: var(--blue-900);
+  --destructive: var(--red-700);
+  --success: var(--green-700);
+  --warning: var(--amber-800);
+  --link: var(--blue-800);
+  --heading: var(--slate-700);
+  --soft: var(--slate-600);
+  --heading-fade: var(--fade-300);
+  --tile: var(--tile-glass);
+  --paper: var(--paper-100);
+  --chip: var(--chip-100);
+  --placeholder: var(--placeholder-200);
+  --border: var(--gray-200); /* decorative dividers only */
+  --input: var(--gray-500); /* control boundaries, 3:1 or better */
+  --ring: var(--blue-600);
+}
+
+/* ------------------------------------------------------------------
+   Inverse surface. Not a theme. A section opts in with data-surface,
+   and every semantic token below is remapped for its children.
+------------------------------------------------------------------- */
+[data-surface="inverse"],
+[data-surface="charcoal"] {
+  --background: var(--navy-950);
+  --foreground: var(--gray-50);
+  --card: var(--navy-900);
+  --card-foreground: var(--gray-50);
+  --muted: var(--navy-900);
+  --muted-foreground: var(--gray-400);
+  --primary-hover: var(--blue-600);
+  --secondary: rgb(255 255 255 / 0.12);
+  --secondary-hover: rgb(255 255 255 / 0.18);
+  --secondary-foreground: var(--gray-50);
+  --accent: var(--navy-900);
+  --accent-foreground: var(--gray-50);
+  --link: var(--blue-300);
+  --heading: var(--gray-50);
+  --border: rgb(255 255 255 / 0.14);
+  --input: #8a90a2;
+  --ring: var(--blue-300);
+}
+
+/* Charcoal variant of the inverse surface, used by the value section. */
+[data-surface="charcoal"] {
+  --background: var(--charcoal-900);
+  --tile: var(--tile-glass);
+}
+
+/* ------------------------------------------------------------------
+   Layer 3: expose tokens to Tailwind utilities.
+   "inline" keeps utilities pointing at the live variable, which is what
+   makes the inverse remap work.
+------------------------------------------------------------------- */
 @theme inline {
+  --font-sans: var(--font-google-sans, "Google Sans Flex"), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-link: var(--link);
+  --color-heading: var(--heading);
+  --color-soft: var(--soft);
+  --color-heading-fade: var(--heading-fade);
+  --color-tile: var(--tile);
+  --color-paper: var(--paper);
+  --color-chip: var(--chip);
+  --color-placeholder: var(--placeholder);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-tint: var(--tint);
+  --color-periwinkle: var(--periwinkle-200);
+  --color-steel: var(--steel-500);
+  --color-steel-light: var(--steel-300);
+  --color-hero-overlay: var(--hero-overlay);
+
+  --radius-control: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
+
+  --shadow-raised: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.08);
+
+  --container-page: 68rem;
+  --container-reading: 40rem;
+
+  --ease-standard: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ------------------------------------------------------------------
+   Type scale. Fluid between a 375px and a 1280px viewport.
+   Sizes use rem so the visitor's browser font setting is respected.
+------------------------------------------------------------------- */
+@utility text-display {
+  font-size: clamp(2.5rem, 1.6rem + 4vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+@utility text-title-1 {
+  font-size: clamp(2rem, 1.5rem + 2.4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+@utility text-title-2 {
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+@utility text-title-3 {
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+@utility text-lead {
+  font-size: clamp(1.125rem, 1.07rem + 0.3vw, 1.3125rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+@utility text-body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+@utility text-small {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+@utility text-caption {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+/* Frosted glass card for dark surfaces: faint fill, soft edge light, 1px edge line. */
+@utility glass-card {
+  background: rgb(255 255 255 / 0.015);
+  /* The edge line is an inset shadow, not a border, so children paint over it
+     and a screenshot can sit flush against the real edge of the card. */
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.13),
+    inset 0 0 24px rgb(255 255 255 / 0.04),
+    inset 0 1px 0 rgb(255 255 255 / 0.05);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+/* Scrolls but never shows a scrollbar. Keep the container focusable so keyboard users can scroll it. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Section heading used above content blocks: 32px on phones, 48px on desktop */
+@utility text-section-title {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+/* Hero headline: 88px at desktop, 40px on phones */
+@utility text-hero-title {
+  font-size: clamp(2.5rem, 1.2rem + 4.6vw, 5.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+/* Vertical rhythm between page sections */
+@utility section-y {
+  padding-block: clamp(4.5rem, 3rem + 6vw, 8rem);
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+@layer base {
+  html {
+    font-family: var(--font-google-sans, "Google Sans Flex"), ui-sans-serif, system-ui,
+      -apple-system, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--blue-100);
+    color: var(--gray-900);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Motion. One entrance sequence for the hero, one reveal for media.
+------------------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@utility animate-rise {
+  animation: rise var(--duration-hero) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal="hidden"] {
+    opacity: 1;
+    transform: none;
+  }
 }
