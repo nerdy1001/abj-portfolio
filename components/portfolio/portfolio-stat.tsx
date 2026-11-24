@@ -25,7 +25,7 @@ export function PortfolioStat({
   return (
     <p
       className={cn(
-        "absolute z-10 flex bg-[rgb(88_133_209/0.1)] text-white backdrop-blur-[30px]",
+        "absolute z-10 flex bg-[rgb(88_133_209/0.1)] text-white/65 backdrop-blur-[30px]",
         "pl-[max(10px,3.171cqw)] pr-[max(10px,2cqw)]",
         layout === "inline"
           ? "min-h-[8.293cqw] min-w-[31.341cqw] items-center gap-[max(6px,1.463cqw)] py-1.5"

@@ -35,7 +35,7 @@ export function PortfolioIntro({ className }: { className?: string }) {
           <h1 className="mt-4 bg-linear-to-b from-[#c1d7f1] from-20% via-white via-55% to-[#c1d7f1] to-85% bg-clip-text text-[48px] font-medium leading-[1.25] tracking-[-0.04em] text-transparent md:text-[64px]">
             {PORTFOLIO_TITLE}
           </h1>
-          <p className="mt-4 max-w-[34rem] text-[18px] leading-6 text-white">{PORTFOLIO_DESCRIPTION}</p>
+          <p className="mt-4 max-w-[34rem] text-[16px] leading-6 text-white">{PORTFOLIO_DESCRIPTION}</p>
           <CTAButton
             text={PORTFOLIO_CTA.text}
             href={PORTFOLIO_CTA.href}
