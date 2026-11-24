@@ -40,7 +40,7 @@ export function PortfolioIntro({ className }: { className?: string }) {
             text={PORTFOLIO_CTA.text}
             href={PORTFOLIO_CTA.href}
             icon={ArrowUpRight}
-            className="mt-8 border-steel-light bg-primary px-2 py-6 text-[18px] leading-[1.2] hover:bg-primary-hover"
+            className="mt-8 border-steel-light bg-primary px-2 py-6 text-[16px] leading-[1.2] hover:bg-primary-hover"
           />
         </div>
         <PortfolioMedia className="mx-auto mt-12 w-full max-w-[820px] xl:mx-0 xl:mt-0 min-[1728px]:mt-[59px]" />
