@@ -11,6 +11,11 @@ type CTAButtonProps = {
   className?: string;
   /** Replaces the visible text as the accessible name, e.g. "Read more about Mala". */
   ariaLabel?: string;
+  /**
+   * Makes the button download the file at href instead of opening it.
+   * Pass true to keep the file's own name, or a string to rename it.
+   */
+  download?: boolean | string;
 };
 
 /**
@@ -18,10 +23,11 @@ type CTAButtonProps = {
  * come from className. The inner span adds the label gutter on top of it.
  *
  * A button pointing at BOOKING_URL opens the Cal.com booking popup instead of
- * leaving the page (see BookingLink). Other full URLs open in a new tab, and
- * paths inside the site use Next.js links.
+ * leaving the page (see BookingLink). A download button is a plain link with
+ * the download attribute. Other full URLs open in a new tab, and paths inside
+ * the site use Next.js links.
  */
-export function CTAButton({ text, href, icon: Icon, className, ariaLabel }: CTAButtonProps) {
+export function CTAButton({ text, href, icon: Icon, className, ariaLabel, download }: CTAButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center rounded-full border border-transparent font-medium whitespace-nowrap text-white",
     "transition-colors duration-(--duration-base) ease-standard",
@@ -35,6 +41,15 @@ export function CTAButton({ text, href, icon: Icon, className, ariaLabel }: CTAB
       {Icon && <Icon aria-hidden className="size-4 shrink-0" />}
     </span>
   );
+
+  // A file, not a page: a plain link, so Next.js does not try to route to it.
+  if (download) {
+    return (
+      <a href={href} download={download === true ? "" : download} aria-label={ariaLabel} className={classes}>
+        {label}
+      </a>
+    );
+  }
 
   if (href === BOOKING_URL) {
     return (

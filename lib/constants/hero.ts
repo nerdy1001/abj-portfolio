@@ -25,8 +25,10 @@ export const CTA_TEXT = {
 // opening it in a popup (see components/booking/booking-link.tsx). Use /15min for the shorter one.
 export const BOOKING_URL = "https://cal.com/akere-bryan-sugyf3/30min";
 
-// Put your resume in /public and keep this path, or change it.
+// Put your resume in /public as resume.pdf (public/resume.pdf), or change the path.
 export const RESUME_URL = "/resume.pdf";
+// The name the file is saved under on the visitor's device.
+export const RESUME_FILENAME = "Akere-Bryan-James-Nojang-Resume.pdf";
 
 export const CTA_HREF = {
   header: BOOKING_URL,
