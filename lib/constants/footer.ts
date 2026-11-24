@@ -23,9 +23,9 @@ export const FOOTER_COLUMNS: ReadonlyArray<{
     title: "Resources",
     links: [
       { label: "Blog", href: "/blog" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms and Conditions", href: "/terms" },
-      { label: "Sitemap", href: "/sitemap" },
+      { label: "Privacy Policy", href: "/#" },
+      { label: "Terms and Conditions", href: "/#" },
+      { label: "Sitemap", href: "/#" },
     ],
   },
 ];
