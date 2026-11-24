@@ -46,9 +46,15 @@ export function Section({
 export function Eyebrow({
   tone = "neutral",
   dot = true,
+  dotClassName,
   className,
   children,
-}: React.ComponentProps<"p"> & { tone?: "neutral" | "brand" | "glass"; dot?: boolean }) {
+}: React.ComponentProps<"p"> & {
+  tone?: "neutral" | "brand" | "glass";
+  dot?: boolean;
+  /** Overrides the dot colour, for pills on surfaces the tone does not cover. */
+  dotClassName?: string;
+}) {
   return (
     <p
       className={cn(
@@ -67,6 +73,7 @@ export function Eyebrow({
           !dot && "invisible",
           dot && (tone === "glass" ? "bg-background" : "bg-link"),
           tone === "neutral" ? "size-1.5" : "size-2.5",
+          dotClassName,
         )}
       />
       {children}

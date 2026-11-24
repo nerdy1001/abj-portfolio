@@ -54,6 +54,7 @@ export const VALUE_CARDS: ValueCard[] = [
       "I work with founders, teams and organizations to transform ideas, requirements, and business objectives into intuitive digital experiences that are easy to understand, adopt, and use.",
     ],
     media: {
+      image: "/preview-3.jpg",
       placement: "bottom",
       tiles: [
         { icon: Users, left: 141, top: -45 },
@@ -87,6 +88,7 @@ export const VALUE_CARDS: ValueCard[] = [
       "I write code that others can read, extend, and trust, so the system keeps moving as quickly on day five hundred as it did on day one.",
     ],
     media: {
+      image: "/value22.jpg",
       placement: "middle",
       tiles: [
         { icon: CodeXml, left: 141, top: -45 },
@@ -102,6 +104,7 @@ export const VALUE_CARDS: ValueCard[] = [
       "I design and deploy on the cloud with continuous delivery, sensible scaling, and recovery built in, so the product stays online and the team stays free to focus on the work.",
     ],
     media: {
+      image: "/value3.jpg",
       placement: "top",
       tiles: [
         { icon: CloudUpload, left: -49, top: 101 },
@@ -135,6 +138,7 @@ export const VALUE_CARDS: ValueCard[] = [
       "I keep the data model simple and honest, so the numbers hold up and the system stays easy to reason about as it grows.",
     ],
     media: {
+      image: "/value4.jpg",
       placement: "bottom",
       tiles: [
         { icon: Database, left: 141, top: -45 },

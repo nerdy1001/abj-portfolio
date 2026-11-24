@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Google_Sans_Flex } from "next/font/google";
 import "./globals.css";
+import { SiteFooter } from "@/components/sections/footer/footer-section";
 
 // The variable class on <html> makes --font-google-sans available everywhere.
 const sans = Google_Sans_Flex({
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <main id="main">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

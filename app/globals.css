@@ -29,6 +29,13 @@
   --paper-100: #f5f5f5;
   --chip-100: #e2e5f3;
   --placeholder-200: #d9d9d9;
+  --ice-100: #dfe9f3;
+  --glass-bar: rgb(197 208 231 / 0.4);
+  --field-100: #f2f2f2;
+  --field-edge-200: #e2e2e2;
+  --ink-900: #0a2540;
+  --footer-muted-300: #b7b3b3;
+  --footer-icon-200: #e2e2e2;
 
   --navy-950: #020c2e;
   --navy-900: #161d36;
@@ -37,6 +44,20 @@
   --steel-300: #6f8bd0;
   --steel-500: #50639f;
   --hero-overlay: #030f37;
+  --hero-surface-900: #1e2439;
+  --hero-heading-100: #e2ecf9;
+  /* Portfolio pages */
+  --rim-300: #d4d6df; /* 10px frame around cards and covers */
+  --mist-100: #e3e5ec; /* light nav pill and tags */
+  --tag-edge-200: #d1deef;
+  --chip-edge-100: #dfebf8;
+  --copy-600: #5a5a5a; /* body copy on portfolio pages */
+  --ink-950: #1e1e1e; /* section headings and nav links on light pages */
+  --brand-ink-900: #0a1b51; /* site title on light pages */
+  --rule-200: #e9eaec;
+  --charcoal: var(--charcoal-900);
+  --date-400: #9c9999; /* dates on blog cards */
+  --date-300: #b3adad; /* date on an article */
 
   --red-700: #b42318;
   --green-700: #067647;
@@ -81,6 +102,13 @@
   --paper: var(--paper-100);
   --chip: var(--chip-100);
   --placeholder: var(--placeholder-200);
+  --frame: var(--ice-100);
+  --glass: var(--glass-bar);
+  --field: var(--field-100);
+  --field-edge: var(--field-edge-200);
+  --ink: var(--ink-900);
+  --footer-muted: var(--footer-muted-300);
+  --footer-icon: var(--footer-icon-200);
   --border: var(--gray-200); /* decorative dividers only */
   --input: var(--gray-500); /* control boundaries, 3:1 or better */
   --ring: var(--blue-600);
@@ -153,6 +181,13 @@
   --color-paper: var(--paper);
   --color-chip: var(--chip);
   --color-placeholder: var(--placeholder);
+  --color-frame: var(--frame);
+  --color-glass: var(--glass);
+  --color-field: var(--field);
+  --color-field-edge: var(--field-edge);
+  --color-ink: var(--ink);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-icon: var(--footer-icon);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -161,6 +196,19 @@
   --color-steel: var(--steel-500);
   --color-steel-light: var(--steel-300);
   --color-hero-overlay: var(--hero-overlay);
+  --color-hero-surface: var(--hero-surface-900);
+  --color-hero-heading: var(--hero-heading-100);
+  --color-rim: var(--rim-300);
+  --color-mist: var(--mist-100);
+  --color-tag-edge: var(--tag-edge-200);
+  --color-chip-edge: var(--chip-edge-100);
+  --color-copy: var(--copy-600);
+  --color-ink-strong: var(--ink-950);
+  --color-brand-ink: var(--brand-ink-900);
+  --color-rule: var(--rule-200);
+  --color-charcoal: var(--charcoal);
+  --color-date: var(--date-400);
+  --color-date-soft: var(--date-300);
 
   --radius-control: 0.75rem;
   --radius-card: 1.5rem;
@@ -238,6 +286,14 @@
   backdrop-filter: blur(24px);
 }
 
+/* About heading: same size as other section titles, with a 1.25 line height (60px at 48px). */
+@utility text-about-title {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
 /* Scrolls but never shows a scrollbar. Keep the container focusable so keyboard users can scroll it. */
 @utility scrollbar-none {
   scrollbar-width: none;
@@ -256,12 +312,12 @@
   text-wrap: balance;
 }
 
-/* Hero headline: 88px at desktop, 40px on phones */
+/* Hero headline: 64px at desktop (80px lines), 36px on phones */
 @utility text-hero-title {
-  font-size: clamp(2.5rem, 1.2rem + 4.6vw, 5.5rem);
+  font-size: clamp(2.25rem, 1.4rem + 2.5vw, 4rem);
   line-height: 1.25;
   letter-spacing: -0.04em;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Vertical rhythm between page sections */

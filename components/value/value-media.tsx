@@ -45,7 +45,7 @@ export function ValueMedia({ media }: { media: NonNullable<ValueCard["media"]> }
         className={cn(
           "absolute inset-0 overflow-hidden bg-white [filter:drop-shadow(0_0_80px_rgb(255_255_255/0.35))]",
           onTopEdge && "rounded-tr-2xl border border-t-black",
-          onMiddleEdge && "rounded-tl-2xl rounded-bl-2xl rounded-br-2xl",
+          onMiddleEdge && "rounded-tl-2xl rounded-bl-2xl",
           onBottomEdge && "rounded-tl-2xl rounded-br-2xl",
         )}
       >

@@ -17,7 +17,7 @@ export function WorkHeader() {
         text={WORK_CTA.text}
         href={WORK_CTA.href}
         icon={ArrowUpRight}
-        className="self-start bg-primary px-2 py-4 text-[20px] leading-7 hover:bg-primary-hover md:self-auto [&>span]:px-5"
+        className="self-start bg-primary px-2 py-4 text-[16px] leading-7 hover:bg-primary-hover md:self-auto [&>span]:px-5"
       />
     </header>
   );
