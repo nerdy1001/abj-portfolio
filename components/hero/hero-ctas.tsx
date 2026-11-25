@@ -12,14 +12,14 @@ export function HeroCTAs() {
         text={CTA_TEXT.primary}
         href={CTA_HREF.primary}
         icon={ArrowUpRight}
-        className="bg-primary px-2 py-4 text-[20px] leading-7 hover:bg-primary-hover [&>span]:px-5"
+        className="bg-primary px-2 py-4 text-[16px] leading-7 hover:bg-primary-hover [&>span]:px-5"
       />
       <CTAButton
         text={CTA_TEXT.secondary}
         href={CTA_HREF.secondary}
         download={RESUME_FILENAME}
         ariaLabel={`${CTA_TEXT.secondary} (PDF)`}
-        className="border-steel bg-primary/30 px-2 py-4 text-[20px] leading-7 hover:bg-primary/40 [&>span]:px-6"
+        className="border-steel bg-primary/30 px-2 py-4 text-[16px] leading-7 hover:bg-primary/40 [&>span]:px-6"
       />
     </div>
   );
