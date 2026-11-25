@@ -23,7 +23,7 @@ import { PortfolioMedia } from "./portfolio-media";
 export function PortfolioIntro({ className }: { className?: string }) {
   return (
     <Frame className={className}>
-      <div className="relative bg-charcoal px-6 py-12 md:px-12 md:py-16 xl:grid xl:grid-cols-[544px_minmax(0,820px)] xl:items-center xl:justify-between xl:gap-[54px] xl:px-[70px] min-[1728px]:h-[600px] min-[1728px]:items-start min-[1728px]:py-0">
+      <div className="relative bg-charcoal px-6 py-12 md:px-12 md:py-20 xl:grid xl:grid-cols-[544px_minmax(0,820px)] xl:items-center xl:justify-between xl:gap-[54px] xl:px-[70px] min-[1728px]:h-[900px] min-[1728px]:items-start min-[1728px]:py-0">
         <div className="flex flex-col items-start min-[1728px]:pt-[128px]">
           <Eyebrow
             tone="glass"

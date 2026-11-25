@@ -15,7 +15,7 @@ export function FooterNav({ title, links }: FooterNavProps) {
       </h2>
       <ul className="mt-4 flex flex-col gap-[11px] lg:mt-[19px]">
         {links.map(({ label, href }) => (
-          <li key={href}>
+          <li key={label}>
             <Link
               href={href}
               className="rounded-sm text-[16px] leading-7 text-white transition-colors duration-(--duration-fast) ease-standard hover:text-periwinkle"
