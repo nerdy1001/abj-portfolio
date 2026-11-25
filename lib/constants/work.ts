@@ -19,6 +19,6 @@ export const WORK_PROJECTS: ReadonlyArray<{
   imageAlt?: string;
 }> = [
   { title: "Mala", category: "Logistics", href: "/portfolio/mala", image: "/mala-home.png", imageAlt: "Mala customer app on a phone" },
-  { title: "Minesup SMS", category: "Enterprise", href: "/portfolio/minesup-sms", image: "/minesup-home.png", imageAlt: "Minesup SMS app on a phone" },
+  { title: "Minesup SMS", category: "Enterprise", href: "/portfolio/minesup", image: "/minesup-home.png", imageAlt: "Minesup SMS app on a phone" },
   { title: "Traverse", category: "Developer tools", href: "/portfolio/traverse", image: "/traverse-home.png", imageAlt: "Traverse developer tool on a computer" },
 ];
